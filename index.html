@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo/index.css">
+    <title>Super Css</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Sass .scss</div> <div class="texto">Super css</div> 
+    </header>
+    <section class="overview">
+        <h2>O que é  Sass?</h2>
+        <p>Sass, Syntactically Awesome Style S
+                heet, ou folha de estilo sintaticamente incrível em uma tradução 
+                direita, é uma maneira de escrever as regras css realmente incrível. 
+            </p>
+        <p>Torna possível a criação de variáveis e até funções que podem ser reutliz
+                adas como se fosse em uma linguagem de progamação mesmo. 
+                Até o conceito de oo se aplica em sass.</p>
+                <h2>Extensão do arquivo</h2>
+                <p>A extensão do sass é .scss "nomeArquivo.scss".</p>
+                <p>Para que o navegador leia o que que há no .scss (Super Css) é necesário que se trasforme o arquivo .scss em .css, 
+                    e isso não é problema nenhum porque a transformação é feita de forma automática, 
+                    para isto basta que instale uma extensão no editor de código compatível com sass,
+                     ou seja, que possa compilar e fazer a transformação.</p>
+                <P>Para o VS code, a extensão seria o "live compiler Sass" que é simples de ser instalado.</P>        
+                <p>Nota: Ao importar o arquivo no doc html, a extensão do arquivo mantem-se como css "nommeArquivo.css", 
+            isso porque o navegador não lê arquivos.scss.</p>
+
+    </section>
+    <div class="content">
+        <h1>Declaração de variáveis e sua utilização</h1>
+        <p>A declaracão de variáveis é feita através do "$" como em php.</p>
+        <button>Exemplo:</button>
+        <code>
+$color1:rgb(250,250,250);<br>
+$bgColor:#202020;<br>
+
+*{<br>
+    box-sizing: border-box;
+    <br>color: $color1;
+    <br>margin: 0;
+    padding: 0;
+
+}
+<br>body{<br>
+    padding: 30px;<br>
+    background: $bgColor;
+}
+
+        </code>
+    </div>
+    <div class="content">
+        <h1>Selecionar elementos dentro de outros elementos e declarar suas regras css</h1>
+        <P>Com o Sass é possível declarar as regras de um elemento filho dentro das regras do elemento pai.</P>
+        <button>Exemplo:</button>
+        <code>
+            div.content{<br>
+                margin: 10px 0;<br>
+                text-align: justify;<br>
+                h1{<br>
+                    color: $bgColor;<br>
+                    background-color: $color1;
+                }
+            }
+
+        </code>
+    </div>
+    <div class="content">
+        <h1>Pseudo-propriedades</h1>
+        <P>A declaração de pseudo-propriedades é feita dentro das regras do elemento <code>"&:hover{...}" </code>  como  no se vê no exemplo.</P>
+        <h2></h2>
+        <button>Exemplo:</button>
+        <code>
+            button{<br>
+                border-radius: 5px;<br>
+                font-size: 14pt;<br>
+                padding: 5px;<br>
+                display: block;<br>
+                color: red;<br>
+                margin-top: 20px;<br>
+                &:hover {<br>
+                        border: 1px solid;<br>
+                        background-color: transparent;<br>
+                        &::after{<br>
+                            content: "1";
+                        }            
+                }
+            }  
+
+        </code>
+    <div class="content">
+        <h1>Importar arquivos</h1>
+        <p>1. O arquivo a ser imporatado deve _nomeArquivo.scss.</p>
+        <p>2. Para importar, basta que se declare o diretório do arquivo + o arquivo, da seguinte forma: <br>
+            <code> @import './header'; </code></p>
+        <h2></h2>
+        <button>Exemplo:</button>
+        <code>
+            $color1:rgb(250,250,250); <br>
+            $bgColor:#202020;<br>
+            
+            @import 'header';<br>
+            @import 'content';<br>
+            
+            
+            *{<br>
+                box-sizing: border-box;<br>
+                color: $color1;<br>
+                margin: 0;<br>
+                padding: 0;<br>
+            
+            }<br>
+            body{<br>
+                padding: 0 30px;<br>
+                background: $bgColor;<br>
+            }           
+        </code>
+    </div>
+    <div class="content">
+        <h1>Mixim or Function</h1>
+        <p>É possível criar funções, com ou sem parámetro, e chamá-las onde for necessário como se vê nos 2 primeiros exemplos.</p>
+        <p>Também é possível extender as regras de um arquivo noutro usando o @extend como no último exemplo.</p>
+        <h2></h2>
+        <button>Exemplo: Sem parámetro</button>
+        <code>
+            @mixin flexbox(){ <br>
+                display:flex;<br>
+                flex-flow: row;<br>
+                justify-content: center;<br>
+            }<br>
+            
+            header{<br>
+                @include flexbox();<br>
+                padding: 10px;<br>
+                .logo{<br>
+                    font-size: 30pt;<br>
+                    font-weight: bold;<br>
+                }
+                .texto{<br>
+                    align-self: center;<br>
+                    margin: 0 10px;<br>
+                    font-size: 40pt;<br>
+                    color: red;<br>
+                }
+            }         
+        </code>
+        <button>Exemplo: Com parámetro</button>
+        <code>
+            @mixin flexbox($display){ <br>
+                display:$display;<br>
+                flex-flow: row;<br>
+                justify-content: center;<br>
+            }<br>
+            
+            header{<br>
+                @include flexbox(flex);<br>
+                padding: 10px;<br>
+                .logo{<br>
+                    font-size: 30pt;<br>
+                    font-weight: bold;<br>
+                }
+                .texto{<br>
+                    align-self: center;<br>
+                    margin: 0 10px;<br>
+                    font-size: 40pt;<br>
+                    color: red;<br>
+                }
+            }         
+        </code>
+        <button>Exemplo: @extend </button>
+        <code>
+            @mixin flexbox($display){ <br>
+                display:$display;<br>
+                flex-flow: row;<br>
+                justify-content: center;<br>
+            }<br>
+            
+            header{<br>
+                @extend var...ou nome de quaquer um outro arquivo que se deseja reutilizar as sua propredades; 
+                @include flexbox(flex);<br>
+                padding: 10px;<br>
+                .logo{<br>
+                    font-size: 30pt;<br>
+                    font-weight: bold;<br>
+                }
+            }         
+        </code>
+    </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+@mixin flexbox($justify){
+    display:flex;
+    flex-flow: row;
+    justify-content: $justify;
+}
+
+header{
+    @include flexbox(center);
+    padding: 10px;
+    .logo{
+        font-size: 30pt;
+        font-weight: bold;
+    }
+    .texto{
+        align-self: center;
+        margin: 0 10px;
+        font-size: 40pt;
+        color: red;
+    }
+}

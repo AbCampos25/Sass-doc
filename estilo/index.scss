@@ -1,0 +1,28 @@
+@import './var';
+@import './header';
+@import './content';
+
+
+*{
+    box-sizing: border-box;
+    color: $color1;
+    margin: 0;
+    padding: 0;
+
+}
+body{
+    padding: 0 30px;
+    background: $bgColor;
+}
+
+p,code{
+    font-size: 13pt;
+}
+.overview{
+    border: 1px solid;
+    padding: 30px;
+    h2{
+     margin: 20px auto;
+    }
+}
+

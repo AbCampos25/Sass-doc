@@ -1,0 +1,29 @@
+div.content{
+    margin: 30px 0;
+    text-align: justify;
+    h1,p{
+        padding: 0 15px;
+        color: $bgColor;
+        background-color: $color1;
+        code{
+            color: $bgColor;
+            background-color: $color1;
+                }
+    }
+    
+    button{
+        border-radius: 5px;
+        font-size: 14pt;
+        padding: 5px;
+        display: block;
+        color: red;
+        margin-top: 20px;
+        &:hover {
+                border: 1px solid;
+                background-color: transparent;
+                &::after{
+                    content: "1";
+                }            
+        }
+    }
+}
